@@ -96,7 +96,7 @@ while True:
         continue
     else:
         # strip the ">"
-        arduino_data = arduino_data[1:]
+        arduino.data = arduino.data[1:]
     
     # MCW: Split the data
     line = arduino_data.split(",")
