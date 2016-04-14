@@ -219,9 +219,10 @@ while True:
         phase_at_zero = int(numpy.median(history_phase))
     
     # Should we beat now? Just prevent two beats close together.
-    if (current_sample_num % samples_per_beat) == 0 \
-      and current_sample_num > last_beat + .8*samples_per_beat:
-        print "BEAT!"
-        bot_arduino.write("BEAT\n")
-        last_beat = current_sample_num
-    
+    if samples_per_beat is not 0:
+        if (current_sample_num % samples_per_beat) == 0 \
+          and current_sample_num > last_beat + .8*samples_per_beat:
+            print "BEAT!"
+            bot_arduino.write("BEAT\n")
+            last_beat = current_sample_num
+        
